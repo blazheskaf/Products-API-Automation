@@ -91,8 +91,8 @@ public class ProductsAPITests {
                 .setRating(9.99)
                 .setImages("https://www.womensalphabet.com/wp-content/uploads/2020/12/red-lipstick-guide.jpg")
                 .setThumbnail("https://www.womensalphabet.com/wp-content/uploads/2020/12/red-lipstick-guide.jpg}")
-                .setDescription("crven karmin")
-                .setBrand("Frosina")
+                .setDescription("Limited edition")
+                .setBrand("INNA")
                 .setCategory("makeup")
                 .createRequest();
         Response response2 = new ProductsClient()
@@ -107,8 +107,8 @@ public class ProductsAPITests {
         assertEquals(9.99, product2.getRating(), 0.001);
         assertEquals(image, product2.getImages());
         assertEquals(thumbnail, product2.getThumbnail());
-        assertEquals("crven karmin", product2.getDescription());
-        assertEquals("Frosina", product2.getBrand());
+        assertEquals("Limited edition", product2.getDescription());
+        assertEquals("INNA", product2.getBrand());
         assertEquals("makeup", product2.getCategory());
     }
 
@@ -121,32 +121,32 @@ public class ProductsAPITests {
         assertEquals(200, resposePut.statusCode());
 
         ProductsRequestModelPOSTPUT updatedPost2 = new ProductsDataFactory(updatedProduct)
-                .setName("Alka")
+                .setName("Bracelet")
                 .setPrice(9.99)
                 .setDiscountPercentage(9.99)
                 .setStock(10)
                 .setRating(9.99)
                 .setImages("https://www.womensalphabet.com/wp-content/uploads/2020/12/red-lipstick-guide.jpg")
                 .setThumbnail("https://www.womensalphabet.com/wp-content/uploads/2020/12/red-lipstick-guide.jpg}")
-                .setDescription("Zlato")
-                .setBrand("Ina")
-                .setCategory("nakit")
+                .setDescription("Gold")
+                .setBrand("Rubina")
+                .setCategory("jewelery")
                 .createRequest();
         Response responseUpdate = new ProductsClient()
                 .updateProduct(updatedPost2, "1");
         String image = "https://www.womensalphabet.com/wp-content/uploads/2020/12/red-lipstick-guide.jpg";
         String thumbnail = "https://www.womensalphabet.com/wp-content/uploads/2020/12/red-lipstick-guide.jpg}";
         assertEquals(200, responseUpdate.statusCode(), 0.001);
-        assertEquals("Alka", updatedPost2.getName());
+        assertEquals("Bracelet", updatedPost2.getName());
         assertEquals(9.99, updatedPost2.getPrice(), 0.001);
         assertEquals(9.99, updatedPost2.getDiscountPercentage(), 0.001);
         assertEquals(10, updatedPost2.getStock());
         assertEquals(9.99, updatedPost2.getRating(), 0.001);
         assertEquals(image, updatedPost2.getImages());
         assertEquals(thumbnail, updatedPost2.getThumbnail());
-        assertEquals("Zlato", updatedPost2.getDescription());
-        assertEquals("Ina", updatedPost2.getBrand());
-        assertEquals("nakit", updatedPost2.getCategory());
+        assertEquals("Gold", updatedPost2.getDescription());
+        assertEquals("Rubina", updatedPost2.getBrand());
+        assertEquals("jewelery", updatedPost2.getCategory());
     }
     @Test
     public void deleteProductTest(){
